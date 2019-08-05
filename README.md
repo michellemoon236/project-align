@@ -1,12 +1,12 @@
 # Project Align
 
-This Ruby on Rails based website is a project management application that allows for teams with many users to create and keep track of projects with associated tasks.
+This Ruby on Rails based website is a project management application that allows for teams with many users to create and keep track of projects with associated tasks. This application has been updated with Javascript dynamic features.
 
 ## Installation
 
 You can clone from the git repository by typing the following command in your terminal:
 
-    $ git clone git@github.com:michellemoon236/project-manager.git
+    $ git clone git@github.com:michellemoon236/project-align.git
 
 To run, execute the following in the terminal:
 
@@ -15,7 +15,7 @@ To run, execute the following in the terminal:
     
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/michellemoon236/project-manager. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/michellemoon236/project-align. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
