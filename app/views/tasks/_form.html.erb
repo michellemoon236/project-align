@@ -1,0 +1,17 @@
+<% if flash[:error] %>
+  <div class="error_explanation">
+    <strong>Errors:</strong>
+    <% flash[:error].each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+    <% flash.clear %>
+  </div>
+<% end %>
+
+<%= form_for @task do |f| %>
+  <%= f.hidden_field :project_id %>
+  <%= f.text_field :content, size: '35' %><br><br>
+  <%= f.submit %>
+<% end %><br><br>
+
+<%= link_to "Go Back to Project", project_path(@task.project) %>

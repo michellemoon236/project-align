@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+
+@media screen {
+  /* --- Reset Styles --- */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* --- Welcome Page Styles --- */
+  body {
+    background-color: #333;
+    color: #333;
+    font-family: 'Hind', sans-serif;
+    line-height: 18px;
+  }
+
+  .wrapper {
+    background: #fff;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin: 16px auto;
+    max-width: 960px;
+    padding: 3%; /* 18px / 800px */
+    width: 80%;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Literata', serif;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 54px;
+  }
+
+  h2 {
+    border-bottom: 2px solid #ccc;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    border-bottom: 2px solid #ccc;
+    font-size: 18px;
+    line-height: 36px;
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .main {
+    overflow: hidden;
+  }
+
+  .content {
+    float: left;
+    width: 60%; /* 480px / 800px */
+  }
+
+  .field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+  }
+
+  .error_explanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px 10px 2px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .notice_explanation {
+    width: 400px;
+    border: 2px solid #333;
+    padding: 7px 10px 2px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    background-color: #f0f0f0;
+  }
+
+  table {
+    margin-bottom: 15px;
+  }
+
+  th {
+  text-align: left;
+  }
+
+  td { 
+    padding-right: 7px;
+  }
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ccc;
+    font-family: 'Literata', serif;
+    font-weight: bold;
+  }
+
+  nav li {
+    float: left;
+  }
+
+  nav li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  nav {
+    margin-bottom: 20px;
+  }
+
+
+}

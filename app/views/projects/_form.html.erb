@@ -1,0 +1,24 @@
+<% if flash[:error] %>
+  <div class="error_explanation">
+    <strong>Errors:</strong>
+    <% flash[:error].each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+    <% flash.clear %>
+  </div>
+<% end %>
+
+<%= form_for @project do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name, size: '38' %><br><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, size: '40x5' %><br>
+  <p>Team members on the project</p>
+  <%= f.collection_check_boxes :user_ids, User.all, :id, :name %><br><br>
+  <p>Tasks</p>
+  <%= f.fields_for :tasks do |task| %>
+    <%= task.hidden_field :id %>
+    <li><%= task.text_field :content, size: '35' %></li><br>
+  <% end %>
+  <%= f.submit %>
+<% end %><br><br>

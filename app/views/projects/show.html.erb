@@ -1,0 +1,56 @@
+<% if flash[:notice] %>
+  <div class="notice_explanation">
+    <%= flash[:notice] %>
+    <% flash.clear %>
+  </div>
+<% end %>
+
+<h2>Project: <%= @project.name %></h2>
+<p>
+  <strong>Description:</strong> 
+  <%= @project.description %>
+</p>
+
+<table> 
+  <tr>
+    <th>Team members on this project</th>
+  <tr>
+  <% @project.users.each do |user| %>
+  <tr>
+    <td><li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %></li></td> 
+  </tr>
+  <% end %>
+</table>
+
+<table id="first_table">
+  <tr>
+    <th colspan="2">Tasks To Do</th>
+  </tr>
+  <% @project.tasks.not_completed.each do |task| %>
+  <tr>
+    <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
+    <td><%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit value='Completed' %>
+    <% end %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% if @project.tasks.completed.empty? == false %>
+  <table>  
+    <tr>
+      <th>Tasks Completed</th>
+    </tr>
+    <% @project.tasks.completed.each do |task| %>
+    <tr>
+      <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
+    </tr>
+    <% end %>
+  </table><br>
+<% end %>
+
+<br>
+<%= link_to "Add Task", new_project_task_path(@project) %> | 
+<%= link_to "Edit Project", edit_project_path(@project) %> | 
+<%= link_to "Delete Project", @project, method: :delete %>

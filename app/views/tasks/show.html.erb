@@ -1,0 +1,25 @@
+<h2>Task for Project: <%= @task.project.name %></h2>
+
+<p>
+  <strong>Content:</strong>
+  <%= @task.content %>
+</p>
+
+<table>
+  <tr>
+    <td>
+      <strong>Status:</strong>
+      <%= @task.complete == true ? "completed" : "not completed" %>
+    </td>
+    <td>
+      <%= form_for @task, :url => task_complete_path(@task), :method => 'get' do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit value='Change status' %>
+      <% end %>
+    </td>
+  </tr>
+</table><br><br>
+
+<%= link_to "Edit Task", edit_project_task_path(@task.project, @task) %> |
+<%= link_to "Delete Task", @task, method: :delete %> |
+<%= link_to "Go Back to Project", project_path(@task.project) %><br>
