@@ -8,6 +8,7 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
+gem 'active_model_serializers'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
