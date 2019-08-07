@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   before_action :require_login
 
+  def home
+
+  end
+  
   def index
     @projects = Project.all.select { |project| project.users.include?(current_user) }
     render json: @projects

@@ -1,9 +1,9 @@
-BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://localhost:3000"
 
 function getProjects() {
   let main = document.getElementById('main')
   main.innerHTML = '<ul>'
-  fetch(BASE_URL + '/projects')
+  fetch("http://localhost:3000/projects")
   .then(response => response.json())
   .then(data => {
     main.innerHTML += data.map(project => {
