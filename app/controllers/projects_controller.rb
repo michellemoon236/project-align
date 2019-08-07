@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all.select { |project| project.users.include?(current_user) }
+    render json: @projects
   end
   
   def new
