@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   before_action :require_login
 
   def home
-
   end
   
   def index

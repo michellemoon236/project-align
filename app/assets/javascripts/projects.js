@@ -1,16 +1,15 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = 'http://localhost:3000'
 
 function getProjects() {
-  let main = document.getElementById('main')
-  main.innerHTML = '<ul>'
-  fetch("http://localhost:3000/projects")
+  let main = document.getElementById('main');
+  main.innerHTML = '<ul>';
+  fetch('https://localhost:3000/projects')
   .then(response => response.json())
   .then(data => {
     main.innerHTML += data.map(project => {
-      let p = new Project(project)
+      const p = new Project(project)
       return p.render()
-    }
-  ).join('')
+    }).join('')
   main.innerHTML += '</ul>'
     })
 }
@@ -24,7 +23,7 @@ class Project {
 
   render() {
     return `
-      <li><a href="#" data-id="$this.id}">${this.name}</a></li>
+      <li><a href="#" data-id="${this.id}">${this.name}</a></li>
     `
   }
 
