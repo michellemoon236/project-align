@@ -1,9 +1,9 @@
 function getProjects() {
+  let main = document.getElementById('main');
+  main.innerHTML = '<ul>';
   fetch("/projects")
   .then(response => response.json())
   .then(data => {
-    let main = document.getElementById('main');
-    main.innerHTML = '<ul>';
     main.innerHTML += data.map(project => {
       const p = new Project(project)
       return p.render()
@@ -26,3 +26,7 @@ class Project {
   }
 
 }
+
+window.addEventListener('load', (e) => {
+  getProjects()
+})
