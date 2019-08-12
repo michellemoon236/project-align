@@ -14,7 +14,7 @@ function displayCreateTaskForm() {
 function createTask() {
   const task = { content: document.getElementById('content').value }
   let id = document.getElementById('project_id').value
-  fetch(BASE_URL + '/tasks', {
+  fetch('/tasks', {
     method: 'POST',
     body: JSON.stringify({task}),
     headers: {
@@ -24,7 +24,7 @@ function createTask() {
   }).then(resp => resp.json())
   .then(task => {
     t = new Task(task)
-    document.querySelector("test").innerHTMl += t.render()
+    document.querySelector("task-added").innerHTMl += t.render()
     let taskFormDiv = document.getElementById('task-form');
     taskFormDiv.innerHTML = '';
   })

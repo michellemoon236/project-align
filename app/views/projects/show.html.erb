@@ -37,7 +37,7 @@
   <% end %>
 </table>
 
-<div id="test">
+<div id="task-added">
 </div>
 
 <% if @project.tasks.completed.empty? == false %>
@@ -59,6 +59,6 @@
 <br>
 <%= link_to "Add Task", new_project_task_path(@project) %> | 
 <%= link_to "Edit Project", edit_project_path(@project) %> | 
-<%= link_to "Delete Project", @project, method: :delete %>
+<%= link_to "Delete Project", @project, method: :delete %><br><br>
 
-<a href="#" onclick="displayCreateTaskForm()" data-id="@project.id">Add Task</a>
+<a href="#" onclick="displayCreateTaskForm(); return false;" data-id="@project.id">Add Task</a>
