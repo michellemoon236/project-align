@@ -21,7 +21,7 @@ class Project {
 
   render() {
     return `
-      <li><a href="#" data-id="${this.id}">${this.name}</a></li>
+      <li><a href="/projects/${this.id}">${this.name}</a></li>
     `
   }
 
