@@ -2,10 +2,10 @@ function displayCreateTaskForm() {
   let taskFormDiv = document.getElementById('task-form');
   let projectId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1)
   let form = `
-    <form onsubmit="createTask()">
+    <form onsubmit="createTask(); return false;">
       <label>New Task:</label>
       <input type="text" id="content">
-      <input type="hidden" id="project_id" value="${projectId}">
+
       <input type="submit" value="Create Task">
     </form>
   `
@@ -13,11 +13,11 @@ function displayCreateTaskForm() {
 }
 
 function createTask() {
-  const task = { content: document.getElementById('content').value, project_id: document.getElementById('project_id').value, complete: "false" }
+  const task = {content: document.getElementById('content').value}
 
-  fetch("/tasks", {
+  fetch('/tasks', {
     method: 'POST',
-    body: JSON.stringify({task}),
+    body: JSON.stringify({content: "hello"}),
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'

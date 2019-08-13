@@ -1,7 +1,6 @@
 <h2>Welcome <%= current_user.name %></h2>
 
-<h4>Your Current Projects</h4>
-<div id="main"></div>
-<br><br>
+<a href="#" onclick="getProjects(); return false;">Your Projects</a> |
+<%= link_to "Create a New Project", new_project_path %><br><br>
 
-<%= link_to "Create a New Project", new_project_path %><br>
+<div id="main"></div>

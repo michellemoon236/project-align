@@ -4,6 +4,7 @@ function getProjects() {
   fetch("/projects")
   .then(response => response.json())
   .then(data => {
+    main.innerHTML += '<h4>Projects</h4>'
     main.innerHTML += data.map(project => {
       const p = new Project(project)
       return p.render()
@@ -27,6 +28,3 @@ class Project {
 
 }
 
-window.addEventListener('load', (e) => {
-  getProjects()
-})
