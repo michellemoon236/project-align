@@ -5,7 +5,7 @@ function displayCreateTaskForm() {
     <form onsubmit="createTask(); return false;">
       <label>New Task:</label>
       <input type="text" id="content">
-
+      <input type="hidden" id="project_id" value="${projectId}">
       <input type="submit" value="Create Task">
     </form>
   `
@@ -13,18 +13,20 @@ function displayCreateTaskForm() {
 }
 
 function createTask() {
-  const task = {content: document.getElementById('content').value}
+  const task = {content: document.getElementById('content').value, project_id: document.getElementById('project_id').value}
 
   fetch('/tasks', {
     method: 'POST',
-    body: JSON.stringify({content: "hello"}),
+    body: JSON.stringify({task}),
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     }
   }).then(response => response.json())
   .then(task => {
-    document.querySelector("#task-added").innerHTML += `<li>${task.content}</li>`;
+
+    document.querySelector("#task-added").innerHTML += `<li><a href="#" data-id="${task.id}">${task.content}</a></li>`
+    document.querySelector("#task-added li a").addEventListener('click', displayTask)
     let taskFormDiv = document.getElementById('task-form');
     taskFormDiv.innerHTML = '';
   })
