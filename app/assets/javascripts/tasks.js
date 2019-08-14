@@ -41,13 +41,13 @@ function attachClickTaskLinks() {
 function displayTask(e) {
   e.preventDefault();
   let id = this.dataset.id;
-  let task_show = document.getElementById('task'+ id);
+  let task_show = document.getElementById('task');
   task_show.innerHTML = '';
   fetch('/tasks/' + id)
   .then(response => response.json())
   .then(task => {
     task_show.innerHTML += `
-      <p>${task.complete}</p>
+      <p>Content: ${task.content}</p>
       <p>${completed(task)}</p>
       <p>Date Created: ${task.created_at}</p>
       `

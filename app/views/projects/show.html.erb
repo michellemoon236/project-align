@@ -22,6 +22,7 @@
   <% end %>
 </table>
 
+
 <table id="first_table">
   <tr>
     <th colspan="2">Tasks To Do</th>
@@ -38,15 +39,17 @@
 </table>
 
 
-
-
-<h3>JS Tasks To Do</h3>
+<h4>JS Tasks To Do</h4>
   <% @project.tasks.not_completed.each do |task| %>
   <div id="tasks_list">
     <li><a href="#" data-id="<%=task.id%>"><%=task.content%></a></li>
-    <div id="task<%= task.id%>"></div>
+    
   <% end %>
-</div>
+  </div><br><br>
+
+<strong>Task Details</strong>
+<div id="task"></div>
+
 
 <div id="task-added">
 </div>
