@@ -30,10 +30,17 @@ function createTask() {
   })
 }
 
+function attachClickTaskLinks() {
+  let tasks = document.querySelectorAll('#tasks_list li a');
+  for (let i= 0; i < tasks.length; i++) {
+    tasks[i].addEventListener('click', displayTask)
+  }
+}
 
 
-function displayTask() {
-  let id = document.getElementById('task_link').dataset.id;
+function displayTask(e) {
+  e.preventDefault();
+  let id = this.dataset.id;
   let task_show = document.getElementById('task'+ id);
   task_show.innerHTML = '';
   fetch('/tasks/' + id)
@@ -60,3 +67,6 @@ class Task {
 }
 
 
+window.addEventListener('load', function(){
+  attachClickTaskLinks();
+})
