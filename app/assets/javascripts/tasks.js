@@ -1,5 +1,5 @@
 function displayCreateTaskForm() {
-  let taskFormDiv = document.getElementById('task-form');
+  let taskFormDiv = document.getElementById('task_form');
   let projectId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1)
   let form = `
     <form onsubmit="createTask(); return false;">
@@ -25,9 +25,9 @@ function createTask() {
   }).then(response => response.json())
   .then(task => {
 
-    document.querySelector("#task-added").innerHTML += `<li><a href="#" data-id="${task.id}">${task.content}</a></li>`
-    document.querySelector("#task-added li a").addEventListener('click', displayTask)
-    let taskFormDiv = document.getElementById('task-form');
+    document.querySelector("#task_added").innerHTML += `<li><a href="#" data-id="${task.id}">${task.content}</a></li>`
+    document.querySelector("#task_added li a").addEventListener('click', displayTask)
+    let taskFormDiv = document.getElementById('task_form');
     taskFormDiv.innerHTML = '';
   })
 }
@@ -43,12 +43,12 @@ function attachClickTaskLinks() {
 function displayTask(e) {
   e.preventDefault();
   let id = this.dataset.id;
-  let task_show = document.getElementById('task');
-  task_show.innerHTML = '';
+  let task_details = document.getElementById('task_details');
+  task_details.innerHTML = '';
   fetch('/tasks/' + id)
   .then(response => response.json())
   .then(task => {
-    task_show.innerHTML += `
+    task_details.innerHTML += `
       <p>Content: ${task.content}</p>
       <p>${completed(task)}</p>
       <p>Date Created: ${task.created_at}</p>
