@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :show, :edit]
   end
 
-  resources :tasks, only: [:create, :update, :destroy]
+  resources :tasks, only: [:create, :show, :update, :destroy]
   
   get 'tasks/:id/complete', to: "tasks#task_complete", as: 'task_complete'
 end

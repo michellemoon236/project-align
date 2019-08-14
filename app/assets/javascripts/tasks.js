@@ -29,7 +29,21 @@ function createTask() {
     taskFormDiv.innerHTML = '';
   })
 }
-  
+
+
+
+function displayTask() {
+  let id = document.getElementById('task_link').dataset.id;
+  let task_show = document.getElementById('task'+ id);
+  task_show.innerHTML = '';
+  fetch('/tasks/' + id)
+  .then(response => response.json())
+  .then(task => {
+    task_show.innerHTML += `<p>${task.complete}</p>`;
+  })
+
+}
+
 class Task {
   constructor(task){
     this.id = task.id
@@ -44,4 +58,5 @@ class Task {
   }
 
 }
+
 
