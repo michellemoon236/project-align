@@ -46,9 +46,17 @@ function displayTask(e) {
   fetch('/tasks/' + id)
   .then(response => response.json())
   .then(task => {
-    task_show.innerHTML += `<p>${task.complete}</p>`;
+    task_show.innerHTML += `
+      <p>${task.complete}</p>
+      <p>${completed(task)}</p>
+      <p>Date Created: ${task.created_at}</p>
+      `
   })
 
+}
+
+function completed(task) {
+  return task.complete ? 'Status: Complete' : 'Status: Not Complete'
 }
 
 class Task {
