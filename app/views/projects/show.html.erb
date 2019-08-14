@@ -44,17 +44,16 @@
   <div id="tasks_list">
     <li><a href="#" data-id="<%=task.id%>"><%=task.content%></a></li>
   <% end %>
-  <div id="task"></div>
+  <div id="task-added"></div>
   </div>
-  
+
   <br><br>
 
 <strong>Task Details</strong>
+<div id="task"></div>
 
 
 
-<div id="task-added">
-</div>
 
 <% if @project.tasks.completed.empty? == false %>
   <table>  
