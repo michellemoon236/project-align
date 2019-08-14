@@ -25,7 +25,9 @@ function createTask() {
   }).then(response => response.json())
   .then(task => {
 
-    document.querySelector("#task_added").innerHTML += `<li><a href="#" data-id="${task.id}">${task.content}</a></li>`
+    document.querySelector("#task_added").innerHTML += `
+      <li><a href="#" data-id="${task.id}">${task.content}</a></li>
+    `
     document.querySelector("#task_added li a").addEventListener('click', displayTask)
     let taskFormDiv = document.getElementById('task_form');
     taskFormDiv.innerHTML = '';
@@ -52,6 +54,10 @@ function displayTask(e) {
       <p>Content: ${task.content}</p>
       <p>${completed(task)}</p>
       <p>Date Created: ${task.created_at}</p>
+      <form action="/tasks/${task.id}/complete" method="get">
+      <input type="hidden" id="id" value="${task.id}">
+      <input type="submit" value="Change Status">
+      </form>
       `
   })
 

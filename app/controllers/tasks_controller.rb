@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :require_login
   skip_before_action :verify_authenticity_token
-  
+
   def new
     @task = Task.new(project_id: params[:project_id])
   end
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    render json: @task
+    # render json: @task
   end
 
   def edit 

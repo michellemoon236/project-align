@@ -49,11 +49,18 @@
 
   <br><br>
 
-<strong>Task Details</strong>
-<div id="task_details"></div>
-
-
-
+<% if @project.tasks.completed.empty? == false %>
+  <table>  
+    <tr>
+      <th>JS Tasks Completed</th>
+    </tr>
+    <% @project.tasks.completed.each do |task| %>
+    <tr>
+      <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
+    </tr>
+    <% end %>
+  </table><br>
+<% end %>
 
 <% if @project.tasks.completed.empty? == false %>
   <table>  
@@ -67,6 +74,9 @@
     <% end %>
   </table><br>
 <% end %>
+
+<strong>Task Details</strong>
+<div id="task_details"></div>
 
 <div id="task_form">
 </div>
