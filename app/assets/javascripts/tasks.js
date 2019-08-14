@@ -58,6 +58,8 @@ function displayTask(e) {
       <input type="hidden" id="id" value="${task.id}">
       <input type="submit" value="Change Status">
       </form>
+      <a href="/projects/${task.project_id}/tasks/${task.id}/edit">Edit Task</a> | 
+      <a data-method="delete" href="/tasks/${task.id}">Delete Task</a>
       `
   })
 
