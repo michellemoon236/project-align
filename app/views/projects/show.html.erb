@@ -22,68 +22,38 @@
   <% end %>
 </table>
 
-
-<table id="first_table">
-  <tr>
-    <th colspan="2">Tasks To Do</th>
-  </tr>
-  <% @project.tasks.not_completed.each do |task| %>
-  <tr>
-    <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
-    <td><%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
-      <%= f.hidden_field :id %>
-      <%= f.submit value='Completed' %>
-    <% end %></td>
-  </tr>
-  <% end %>
-</table>
-
-
-<h4>JS Tasks To Do</h4>
-  <% @project.tasks.not_completed.each do |task| %>
-  <div id="tasks_list">
-    <li><a href="#" data-id="<%=task.id%>"><%=task.content%></a></li>
-  <% end %>
-  <div id="task_added"></div>
-  </div>
-
-  <br><br>
-
-<% if @project.tasks.completed.empty? == false %>
-  <table>  
-    <tr>
-      <th>JS Tasks Completed</th>
-    </tr>
-    <% @project.tasks.completed.each do |task| %>
-    <tr>
-      <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
-    </tr>
+<div class="container">
+<div class="col">
+<div id="tasks_list">
+  <h4>Tasks To Do</h4>
+    <% @project.tasks.not_completed.each do |task| %>
+      <li><a href="#" data-id="<%=task.id%>"><%=task.content%></a></li>
     <% end %>
-  </table><br>
-<% end %>
+    <div id="task_added"></div><br>
 
-<% if @project.tasks.completed.empty? == false %>
-  <table>  
-    <tr>
-      <th>Tasks Completed</th>
-    </tr>
+  <% if @project.tasks.completed.empty? == false %>
+  <h4>Tasks Completed</h4>
     <% @project.tasks.completed.each do |task| %>
-    <tr>
-      <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
-    </tr>
+      <li><a href="#" data-id="<%=task.id%>"><%=task.content%></a></li>
     <% end %>
-  </table><br>
-<% end %>
+  <% end %><br>
+</div>
+</div>
 
+<div class="col">
 <strong>Task Details</strong>
 <div id="task_details"></div>
 
-<div id="task_form">
-</div>
+
 
 <br>
-<%= link_to "Add Task", new_project_task_path(@project) %> | 
+</div>
+</div>
+
+<div class="footer">
+<br>
+<div id="task_form"></div><br>
+<a href="#" onclick="displayCreateTaskForm(); return false;" data-id="<%=@project.id%>">Add Task</a> | 
 <%= link_to "Edit Project", edit_project_path(@project) %> | 
 <%= link_to "Delete Project", @project, method: :delete %><br><br>
-
-<a href="#" onclick="displayCreateTaskForm(); return false;" data-id="<%=@project.id%>">JS Add Task</a>
+</div>

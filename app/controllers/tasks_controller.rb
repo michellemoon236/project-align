@@ -48,6 +48,7 @@ class TasksController < ApplicationController
   end
 
   def task_complete
+    binding.pry
     params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
     @task.status_change
     flash[:notice] = "*Task status has been changed*"

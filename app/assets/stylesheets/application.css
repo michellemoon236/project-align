@@ -157,17 +157,19 @@
     margin-bottom: 20px;
   }
 
-  .flexbox-container {
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
-  }
-  .flexbox-container>div {
+  .col {
+    float: left;
+    display: inline-block;
     width: 50%;
-    padding: 10px;
-  }
-  .flexbox-container>div:first-child {
-    margin-right: 20px;
+    vertical-align: top;
   }
 
+  .footer {
+    clear: both;
+  }
+
+  #task_details p {
+    margin-bottom: 7px;
+    padding: 0;
+  }
 }

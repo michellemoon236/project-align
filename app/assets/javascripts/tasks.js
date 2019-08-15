@@ -51,13 +51,20 @@ function displayTask(e) {
   .then(response => response.json())
   .then(task => {
     task_details.innerHTML += `
-      <p>Content: ${task.content}</p>
-      <p>${completed(task)}</p>
-      <p>Date Created: ${task.created_at}</p>
-      <form action="/tasks/${task.id}/complete" method="get">
-      <input type="hidden" id="id" value="${task.id}">
-      <input type="submit" value="Change Status">
-      </form>
+      <p><strong>Content:</strong> ${task.content}</p>
+      <p><strong>Date Created:</strong> ${task.created_at}</p>
+      <table>
+        <tr>
+          <td>${completed(task)}</td>
+          <td>
+            <form action="/tasks/${task.id}/complete" method="get">
+            <input type="hidden" id="id" value="${task.id}">
+            <input type="submit" value="Change Status">
+            </form>
+          </td>
+        </tr>
+      </table>
+      <a href="/tasks/${task.id}/complete">Change Status</a> |
       <a href="/projects/${task.project_id}/tasks/${task.id}/edit">Edit Task</a> | 
       <a data-method="delete" href="/tasks/${task.id}">Delete Task</a>
       `
@@ -66,7 +73,7 @@ function displayTask(e) {
 }
 
 function completed(task) {
-  return task.complete ? 'Status: Complete' : 'Status: Not Complete'
+  return task.complete ? '<strong>Status:</strong> Complete' : '<strong>Status:</strong> Not Complete'
 }
 
 class Task {
