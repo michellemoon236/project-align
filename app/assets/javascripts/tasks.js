@@ -58,13 +58,11 @@ function displayTask(e) {
           <td>${completed(task)}</td>
           <td>
             <form action="/tasks/${task.id}/complete" method="get">
-            <input type="hidden" id="id" value="${task.id}">
             <input type="submit" value="Change Status">
             </form>
           </td>
         </tr>
       </table>
-      <a href="/tasks/${task.id}/complete">Change Status</a> |
       <a href="/projects/${task.project_id}/tasks/${task.id}/edit">Edit Task</a> | 
       <a data-method="delete" href="/tasks/${task.id}">Delete Task</a>
       `
@@ -84,9 +82,7 @@ class Task {
   }
 
   render() {
-    return `
-      <li>${this.content}</li>
-    `
+    return `<li>${this.content}</li>`
   }
 
 }
