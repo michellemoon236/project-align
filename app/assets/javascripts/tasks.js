@@ -28,23 +28,26 @@ function createTask() {
     document.querySelector("#task_added").innerHTML += `
       <li><a href="#" data-id="${task.id}">${task.content}</a></li>
     `
-    document.querySelector("#task_added li a").addEventListener('click', displayTask)
+    document.querySelector("#task_added li a").addEventListener('click', function(e) {
+      displayTask(e, `${task.id}`)})
     let taskFormDiv = document.getElementById('task_form');
     taskFormDiv.innerHTML = '';
   })
 }
 
-function attachClickTaskLinks() {
-  let tasks = document.querySelectorAll('#tasks_list li a');
-  for (let i= 0; i < tasks.length; i++) {
-    tasks[i].addEventListener('click', displayTask)
-  }
-}
+// shape.addEventListener("mouseover", function(e) { popup_on(e, foo, i); });
+
+// function attachClickTaskLinks() {
+//   let tasks = document.querySelectorAll('#tasks_list li a');
+//   for (let i= 0; i < tasks.length; i++) {
+//     tasks[i].addEventListener('click', displayTask)
+//   }
+// }
 
 
-function displayTask(e) {
+function displayTask(e, id) {
   e.preventDefault();
-  let id = this.dataset.id;
+  // let id = this.dataset.id;
   let task_details = document.getElementById('task_details');
   task_details.innerHTML = '';
   fetch('/tasks/' + id)
@@ -89,6 +92,6 @@ class Task {
 }
 
 
-window.addEventListener('load', function(){
-  attachClickTaskLinks();
-})
+// window.addEventListener('load', function(){
+//   attachClickTaskLinks();
+// })
