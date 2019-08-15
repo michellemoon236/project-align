@@ -52,8 +52,8 @@ function displayTask(e) {
   .then(task => {
     task_details.innerHTML += `
       <p><strong>Content:</strong> ${task.content}</p>
-      <p><strong>Date Created:</strong> ${task.date_created}</p>
-      <p><strong>Date Updated:</strong> ${task.date_updated}</p>
+      <p><strong>Created:</strong> ${task.date_created}</p>
+      <p><strong>Updated:</strong> ${task.date_updated}</p>
       <table>
         <tr>
           <td>${completed(task)}</td>
