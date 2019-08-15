@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   end
   
   def new
+    binding.pry
     @project = Project.new 
     8.times do 
       @project.tasks.build
