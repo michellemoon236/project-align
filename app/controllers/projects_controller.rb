@@ -6,8 +6,9 @@ class ProjectsController < ApplicationController
   
   def index
     # projects = Project.all.select { |project| project.users.include?(current_user) }
-    projects = current_user.projects
-    render json: projects
+    # projects = current_user.projects
+    # render json: projects
+    render json:current_user
   end
   
   def new

@@ -4,8 +4,9 @@ function getProjects() {
   fetch("/projects")
   .then(response => response.json())
   .then(data => {
-    main.innerHTML += '<h4>Projects</h4>'
-    main.innerHTML += data.map(project => {
+    main.innerHTML += `<h2>Welcome ${data.name}</h2>`
+    main.innerHTML += `<h4>Email: ${data.email}</h4>`
+    main.innerHTML += data.projects.map(project => {
       const p = new Project(project)
       return p.render()
     }).join('')
