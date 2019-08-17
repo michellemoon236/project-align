@@ -7,7 +7,7 @@ function getProjects() {
     main.innerHTML += `
       <h2>Welcome ${data.name}</h2>
       <h4>Email: ${data.email}</h4>
-      <h4>Projects:</h4>
+      <h4>Your Projects:</h4>
     `
     main.innerHTML += data.projects.map(project => {
       const p = new Project(project)

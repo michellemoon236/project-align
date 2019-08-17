@@ -5,10 +5,7 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    # projects = Project.all.select { |project| project.users.include?(current_user) }
-    # projects = current_user.projects
-    # render json: projects
-    render json:current_user
+    render json: current_user
   end
   
   def new
@@ -31,9 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @project = Project.find(params[:id])
-    # render json: @project
   end
 
   def edit 
