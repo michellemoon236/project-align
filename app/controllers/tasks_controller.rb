@@ -10,11 +10,7 @@ class TasksController < ApplicationController
     task = Task.new(task_params)
     if task.save
       flash[:notice] = "*New task has been added*"
-      # redirect_to project_path(@task.project_id)
       render json: task
-    # else
-    #   flash[:error] = @task.errors.full_messages
-      # render :new
     end
   end
 

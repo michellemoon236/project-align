@@ -30,24 +30,14 @@ function createTask() {
     `
     document.querySelector("#task_added li a").addEventListener('click', function(e) {
       displayTask(e, `${task.id}`)})
+
     let taskFormDiv = document.getElementById('task_form');
     taskFormDiv.innerHTML = '';
   })
 }
 
-// shape.addEventListener("mouseover", function(e) { popup_on(e, foo, i); });
-
-// function attachClickTaskLinks() {
-//   let tasks = document.querySelectorAll('#tasks_list li a');
-//   for (let i= 0; i < tasks.length; i++) {
-//     tasks[i].addEventListener('click', displayTask)
-//   }
-// }
-
-
 function displayTask(e, id) {
   e.preventDefault();
-  // let id = this.dataset.id;
   let task_details = document.getElementById('task_details');
   task_details.innerHTML = '';
   fetch('/tasks/' + id)
@@ -78,20 +68,4 @@ function completed(task) {
   return task.complete ? '<strong>Status:</strong> Complete' : '<strong>Status:</strong> Not Complete'
 }
 
-class Task {
-  constructor(task){
-    this.id = task.id
-    this.content = task.content
-    this.project_id = task.project_id
-  }
 
-  render() {
-    return `<li>${this.content}</li>`
-  }
-
-}
-
-
-// window.addEventListener('load', function(){
-//   attachClickTaskLinks();
-// })
