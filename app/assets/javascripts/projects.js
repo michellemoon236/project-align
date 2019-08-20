@@ -9,7 +9,20 @@ function getProjects() {
       <h4>Email: ${data.email}</h4>
       <h4>Your Projects:</h4>
     `
-    main.innerHTML += data.projects.map(project => {
+    let dataAlphabetized = data.projects.sort(function(a, b) {
+      var nameA = a.name
+      var nameB = b.name
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    
+      return 0;
+    });
+
+    main.innerHTML += dataAlphabetized.map(project => {
       const p = new Project(project)
       return p.render()
     }).join('')

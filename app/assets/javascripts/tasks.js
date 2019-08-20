@@ -1,6 +1,6 @@
-function displayCreateTaskForm() {
+function displayCreateTaskForm(id) {
   let taskFormDiv = document.getElementById('task_form');
-  let projectId = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1)
+  let projectId = id
   let form = `
     <form onsubmit="createTask(); return false;">
       <label>New Task:</label>
