@@ -27,14 +27,14 @@
 <div id="tasks_list">
   <h4>Tasks To Do</h4>
     <% @project.tasks.not_completed.each do |task| %>
-      <li><a href="#" onclick="displayTask(event, <%=task.id%>); return false;" data-id="<%=task.id%>"><%=task.content%></a></li>
+      <li><a href="#" onclick="displayTask(event, <%=task.id%>); return false;"><%=task.content%></a></li>
     <% end %>
     <div id="task_added"></div><br>
 
   <% if @project.tasks.completed.empty? == false %>
   <h4>Tasks Completed</h4>
     <% @project.tasks.completed.each do |task| %>
-      <li><a href="#" onclick="displayTask(event, <%=task.id%>); return false;" data-id="<%=task.id%>"><%=task.content%></a></li>
+      <li><a href="#" onclick="displayTask(event, <%=task.id%>); return false;"><%=task.content%></a></li>
     <% end %>
   <% end %><br>
 </div>
@@ -53,7 +53,7 @@
 <div class="footer">
 <br>
 <div id="task_form"></div><br>
-<a href="#" onclick="displayCreateTaskForm(<%=@project.id%>); return false;" data-id="<%=@project.id%>">Add Task</a> | 
+<a href="#" onclick="displayCreateTaskForm(<%=@project.id%>); return false;">Add Task</a> | 
 <%= link_to "Edit Project", edit_project_path(@project) %> | 
 <%= link_to "Delete Project", @project, method: :delete %><br><br>
 </div>
